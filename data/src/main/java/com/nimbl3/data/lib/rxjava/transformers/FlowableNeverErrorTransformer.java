@@ -9,7 +9,7 @@ import io.reactivex.FlowableTransformer;
 import io.reactivex.functions.Consumer;
 
 public final class FlowableNeverErrorTransformer<T> implements FlowableTransformer<T, T> {
-    private Consumer mErrorConsumer;
+    private Consumer<Throwable> mErrorConsumer;
 
     protected FlowableNeverErrorTransformer() {
         this.mErrorConsumer = null;

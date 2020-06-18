@@ -91,8 +91,8 @@ android {
             applicationId "com.nimbl3.staging"
         }
 
-        staging_internal {
-            applicationId "com.nimbl3.staging"
+        development {
+            applicationId "com.nimbl3.dev"
             versionNameSuffix ".${project.versionNameSuffix}"
         }
     }
@@ -101,7 +101,7 @@ android {
         staging {
             res.srcDirs = ['src/staging/res']
         }
-        staging_internal {
+        development {
             res.srcDirs = ['src/staging/res']
         }
         test {

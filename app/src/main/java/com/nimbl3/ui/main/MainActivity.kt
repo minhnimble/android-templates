@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.jakewharton.rxbinding3.view.clicks
 import com.nimbl3.R
-import com.nimbl3.data.lib.schedulers.SchedulersProvider
+import co.nimblehq.data.lib.schedulers.SchedulersProvider
 import com.nimbl3.extension.loadImage
 import com.nimbl3.lib.IsLoading
 import com.nimbl3.ui.base.BaseActivity

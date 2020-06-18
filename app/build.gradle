@@ -119,7 +119,7 @@ dependencies {
     implementation project(':data')
 
     kapt(
-        "androidx.lifecycle:lifecycle-compiler:$arch_component_version",
+        "androidx.lifecycle:lifecycle-compiler:$android_lifecycle_version",
         "com.github.bumptech.glide:compiler:$glide_version",
         "com.google.dagger:dagger-compiler:$dagger_version",
         "com.google.dagger:dagger-android-processor:$dagger_version",
@@ -134,18 +134,20 @@ dependencies {
         "androidx.legacy:legacy-support-v4:$android_legacy_support_version",
         "androidx.appcompat:appcompat:$android_support_version",
         "androidx.recyclerview:recyclerview:$android_support_version",
-        "com.google.android.material:material:$android_material",
+        "com.google.android.material:material:$android_material_version",
         "androidx.constraintlayout:constraintlayout:$constraint_layout_version",
 
         "io.reactivex.rxjava2:rxjava:$rxjava_version",
         "io.reactivex.rxjava2:rxandroid:$rxandroid_version",
-        "com.jakewharton.rxbinding2:rxbinding:$rxbinding_version",
 
-        "androidx.lifecycle:lifecycle-extensions:$arch_component_version",
-        "androidx.lifecycle:lifecycle-common-java8:$arch_component_version",
-        "androidx.lifecycle:lifecycle-runtime:$arch_component_version",
+        "com.jakewharton.rxbinding3:rxbinding:$rxbinding_version",
+        "com.jakewharton.rxbinding3:rxbinding-core:$rxbinding_version",
 
-        "androidx.core:core-ktx:$android_ktx_version",
+        "androidx.lifecycle:lifecycle-extensions:$android_lifecycle_version",
+        "androidx.lifecycle:lifecycle-common-java8:$android_lifecycle_version",
+        "androidx.lifecycle:lifecycle-runtime:$android_lifecycle_version",
+
+        "androidx.core:core-ktx:$android_core_version",
 
         "com.google.dagger:dagger:$dagger_version",
         "com.google.dagger:dagger-android-support:$dagger_version",
@@ -158,11 +160,11 @@ dependencies {
 
     testImplementation(
         "junit:junit:$test_junit_version",
-        "com.nhaarman:mockito-kotlin:$test_mockito_version",
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:$test_mockito_version",
     )
 
     androidTestImplementation(
-        "androidx.test:runner:$test_runner_version",
-        "androidx.test:rules:$test_runner_version",
+        "androidx.test:runner:$android_test_version",
+        "androidx.test:rules:$android_test_version",
     )
 }

@@ -25,7 +25,7 @@ android {
         }
 
         development {
-            dimension "dev"
+            dimension "stage"
         }
     }
 

@@ -1,9 +1,9 @@
 package co.nimblehq.domain.usecase.base
 
-import co.omise.gcpf.domain.BuildConfig
+import co.nimblehq.data.service.error.NoConnectivityException
+import co.nimblehq.domain.BuildConfig
 import co.nimblehq.domain.data.error.AppError
 import co.nimblehq.domain.data.error.NoConnectivityError
-import co.omise.gcpf.service.errors.NoConnectivityException
 import okhttp3.internal.http2.StreamResetException
 import java.io.IOException
 

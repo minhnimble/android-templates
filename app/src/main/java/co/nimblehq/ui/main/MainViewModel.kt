@@ -1,9 +1,9 @@
 package co.nimblehq.ui.main
 
 import co.nimblehq.data.lib.rxjava.transformers.Transformers
-import co.nimblehq.data.lib.schedulers.SchedulersProvider
-import co.nimblehq.data.service.ApiRepository
 import co.nimblehq.data.service.response.ExampleResponse
+import co.nimblehq.domain.repository.ApiRepository
+import co.nimblehq.domain.schedulers.BaseSchedulerProvider
 import co.nimblehq.lib.IsLoading
 import co.nimblehq.ui.base.BaseViewModel
 import co.nimblehq.ui.main.data.Data
@@ -12,9 +12,10 @@ import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
-class MainViewModel
-@Inject constructor(private val repository: ApiRepository,
-                    private val schedulers: SchedulersProvider) : BaseViewModel(), Inputs, Outputs {
+class MainViewModel @Inject constructor(
+    private val repository: ApiRepository,
+    private val schedulers: BaseSchedulerProvider
+) : BaseViewModel(), Inputs, Outputs {
 
     private val refresh = PublishSubject.create<Unit>()
     private val next = PublishSubject.create<Unit>()
@@ -36,7 +37,7 @@ class MainViewModel
             }, {
                 TODO("Handle Error  ¯\\_(ツ)_/¯ ")
             })
-            .bindForDisposable()
+            .addToDisposables()
 
         refresh
             .flatMap<ExampleResponse> { fetchApi() }
@@ -48,13 +49,13 @@ class MainViewModel
             }, {
                 TODO("Handle Error  ¯\\_(ツ)_/¯ ")
             })
-            .bindForDisposable()
+            .addToDisposables()
 
         data
             .compose<Data>(Transformers.takeWhen(next))
             .subscribeOn(schedulers.io())
             .subscribe(gotoNext::onNext)
-            .bindForDisposable()
+            .addToDisposables()
     }
 
     private fun fetchApi(): Observable<ExampleResponse> =

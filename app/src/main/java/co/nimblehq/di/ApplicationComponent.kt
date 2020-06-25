@@ -1,24 +1,30 @@
 package co.nimblehq.di
 
-import dagger.Component
-import dagger.android.AndroidInjector
-import dagger.android.support.AndroidSupportInjectionModule
+import android.app.Application
 import co.nimblehq.TemplateApplication
 import co.nimblehq.di.modules.*
-import javax.inject.Singleton
+import dagger.BindsInstance
+import dagger.Component
+import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 
-@Singleton
-@Component(modules = [
-    AndroidSupportInjectionModule::class,
-    ViewModelFactoryModule::class,
-    AppModule::class,
-    RetrofitModule::class,
-    GsonModule::class,
-    OkHttpClientModule::class,
-    SchedulersModule::class,
-    ActivityBuilderModule::class])
+@ApplicationScope
+@Component(
+    modules = [
+        AndroidInjectionModule::class,
+        AppModule::class,
+        ActivityBuilderModule::class,
+        RetrofitModule::class,
+        GsonModule::class,
+        OkHttpClientModule::class
+    ]
+)
 interface ApplicationComponent : AndroidInjector<TemplateApplication> {
 
-    @Component.Builder
-    abstract class Builder : AndroidInjector.Builder<TemplateApplication>()
+    @Component.Factory
+    interface Factory {
+        fun create(
+            @BindsInstance application: Application
+        ): ApplicationComponent
+    }
 }

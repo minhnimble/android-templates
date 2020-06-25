@@ -1,6 +1,7 @@
-package co.nimblehq.ui.second.di
+package co.nimblehq.di.modules.second
 
 import androidx.lifecycle.ViewModel
+import co.nimblehq.di.ActivityScope
 import co.nimblehq.di.ViewModelKey
 import co.nimblehq.ui.second.SecondViewModel
 import dagger.Binds
@@ -12,6 +13,7 @@ internal abstract class SecondActivityModule {
 
     @Binds
     @IntoMap
+    @ActivityScope
     @ViewModelKey(SecondViewModel::class)
     abstract fun bindSecondViewModel(viewModel: SecondViewModel): ViewModel
 }

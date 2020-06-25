@@ -3,15 +3,17 @@ package co.nimblehq
 import android.content.Context
 import androidx.multidex.MultiDex
 import co.nimblehq.di.DaggerApplicationComponent
-import co.nimblehq.BuildConfig
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 import timber.log.Timber
 
-class TemplateApplication: DaggerApplication() {
+class TemplateApplication : DaggerApplication() {
 
-    override fun applicationInjector(): AndroidInjector<TemplateApplication> =
-            DaggerApplicationComponent.builder().create(this)
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerApplicationComponent
+            .factory()
+            .create(this)
+    }
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
@@ -20,10 +22,10 @@ class TemplateApplication: DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        plantTimber()
+        setupLogging()
     }
 
-    private fun plantTimber() {
+    private fun setupLogging() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }

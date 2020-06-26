@@ -9,7 +9,7 @@ import android.widget.Toast
 import co.nimblehq.R
 import co.nimblehq.ui.base.BaseActivity
 import co.nimblehq.ui.screens.Const
-import co.nimblehq.ui.screens.data.Data
+import co.nimblehq.ui.screens.home.Data
 import kotlinx.android.synthetic.main.activity_second.*
 import permissions.dispatcher.NeedsPermission
 import permissions.dispatcher.OnNeverAskAgain

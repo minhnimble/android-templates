@@ -2,7 +2,7 @@ package co.nimblehq.ui.screens.second
 
 import co.nimblehq.domain.schedulers.BaseSchedulerProvider
 import co.nimblehq.ui.base.BaseViewModel
-import co.nimblehq.ui.screens.data.Data
+import co.nimblehq.ui.screens.home.Data
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 import javax.inject.Inject

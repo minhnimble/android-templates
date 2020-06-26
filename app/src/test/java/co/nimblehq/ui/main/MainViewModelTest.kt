@@ -2,7 +2,7 @@ package co.nimblehq.ui.main
 
 import co.nimblehq.testutil.MockPositiveApiRepository
 import co.nimblehq.testutil.MockSchedulersProvider
-import co.nimblehq.ui.screens.MainViewModel
+import co.nimblehq.ui.screens.MainViewModelImpl
 import org.junit.Test
 
 @Suppress("IllegalIdentifier")
@@ -10,7 +10,7 @@ class MainViewModelTest {
 
     @Test
     fun `At init state, it should emit first load data `() {
-        val viewModel = MainViewModel(MockPositiveApiRepository, MockSchedulersProvider)
+        val viewModel = MainViewModelImpl(MockPositiveApiRepository, MockSchedulersProvider)
 
         val dataLoaded = viewModel.outputs.loadData().test()
         dataLoaded
@@ -24,7 +24,7 @@ class MainViewModelTest {
 
     @Test
     fun `When refresh data, it should emit show then hide loading, and emit data`() {
-        val viewModel = MainViewModel(MockPositiveApiRepository, MockSchedulersProvider)
+        val viewModel = MainViewModelImpl(MockPositiveApiRepository, MockSchedulersProvider)
         val dataLoaded = viewModel.outputs.loadData().test()
         val isLoading = viewModel.outputs.isLoading().test()
 

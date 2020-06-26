@@ -6,6 +6,7 @@ import co.nimblehq.di.ViewModelKey
 import co.nimblehq.domain.repository.ApiRepository
 import co.nimblehq.domain.repository.ApiRepositoryImpl
 import co.nimblehq.ui.screens.MainViewModel
+import co.nimblehq.ui.screens.MainViewModelImpl
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,9 +18,9 @@ interface MainActivityModule {
     @IntoMap
     @ActivityScope
     @ViewModelKey(MainViewModel::class)
-    fun mainViewModel(viewModel: MainViewModel): ViewModel
+    fun mainViewModel(viewModel: MainViewModelImpl): ViewModel
 
     @Binds
     @ActivityScope
-    fun apiRepositoryImpl(repository: ApiRepositoryImpl): ApiRepository
+    fun apiRepository(repository: ApiRepositoryImpl): ApiRepository
 }

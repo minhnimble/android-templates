@@ -1,19 +1,21 @@
-package co.nimblehq.di.modules.screens.second
+package co.nimblehq.di.modules.screens
 
 import androidx.lifecycle.ViewModel
-import co.nimblehq.di.ActivityScope
+import co.nimblehq.di.FragmentScope
 import co.nimblehq.di.ViewModelKey
 import co.nimblehq.ui.screens.second.SecondViewModel
+import co.nimblehq.ui.screens.second.SecondViewModelImpl
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
 @Module
-internal abstract class SecondActivityModule {
+interface SecondFragmentModule {
 
     @Binds
     @IntoMap
-    @ActivityScope
+    @FragmentScope
     @ViewModelKey(SecondViewModel::class)
-    abstract fun bindSecondViewModel(viewModel: SecondViewModel): ViewModel
+    fun secondViewModel(viewModel: SecondViewModelImpl): ViewModel
+
 }

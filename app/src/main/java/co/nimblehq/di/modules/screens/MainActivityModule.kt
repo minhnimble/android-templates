@@ -5,6 +5,8 @@ import co.nimblehq.di.ActivityScope
 import co.nimblehq.di.ViewModelKey
 import co.nimblehq.domain.repository.ApiRepository
 import co.nimblehq.domain.repository.ApiRepositoryImpl
+import co.nimblehq.ui.screens.MainNavigator
+import co.nimblehq.ui.screens.MainNavigatorImpl
 import co.nimblehq.ui.screens.MainViewModel
 import co.nimblehq.ui.screens.MainViewModelImpl
 import dagger.Binds
@@ -19,6 +21,10 @@ interface MainActivityModule {
     @ActivityScope
     @ViewModelKey(MainViewModel::class)
     fun mainViewModel(viewModel: MainViewModelImpl): ViewModel
+
+    @Binds
+    @ActivityScope
+    fun navigator(navigator: MainNavigatorImpl): MainNavigator
 
     @Binds
     @ActivityScope

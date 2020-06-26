@@ -7,14 +7,16 @@ import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 import javax.inject.Inject
 
-class SecondViewModel @Inject constructor(
+abstract class SecondViewModel : BaseViewModel() {
+
+    abstract fun setPersistedData(): Observable<Data>
+}
+
+class SecondViewModelImpl @Inject constructor(
     private val schedulers: BaseSchedulerProvider
-) : BaseViewModel(), Inputs, Outputs {
+) : SecondViewModel() {
 
-    private val persistData = BehaviorSubject.create<Data>()
-
-    val inputs: Inputs = this
-    val outputs: Outputs = this
+    private val _persistData = BehaviorSubject.create<Data>()
 
     init {
 //        val dataFromIntent = intent()
@@ -26,12 +28,5 @@ class SecondViewModel @Inject constructor(
 //            .bindForDisposable()
     }
 
-    override fun setPersistedData() = this.persistData!!
-}
-
-interface Inputs {
-}
-
-interface Outputs {
-    fun setPersistedData(): Observable<Data>
+    override fun setPersistedData() = this._persistData
 }

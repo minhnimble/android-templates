@@ -1,4 +1,4 @@
-package co.nimblehq.ui.main
+package co.nimblehq.ui.screens
 
 import android.os.Bundle
 import android.view.View.*
@@ -6,8 +6,8 @@ import co.nimblehq.R
 import co.nimblehq.extension.loadImage
 import co.nimblehq.lib.IsLoading
 import co.nimblehq.ui.base.BaseActivity
-import co.nimblehq.ui.main.data.Data
-import co.nimblehq.ui.second.SecondActivity
+import co.nimblehq.ui.screens.data.Data
+import co.nimblehq.ui.screens.second.SecondActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainViewModel>() {

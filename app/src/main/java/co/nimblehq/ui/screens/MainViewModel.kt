@@ -1,4 +1,4 @@
-package co.nimblehq.ui.main
+package co.nimblehq.ui.screens
 
 import co.nimblehq.data.lib.rxjava.transformers.Transformers
 import co.nimblehq.data.service.response.ExampleResponse
@@ -6,7 +6,7 @@ import co.nimblehq.domain.repository.ApiRepository
 import co.nimblehq.domain.schedulers.BaseSchedulerProvider
 import co.nimblehq.lib.IsLoading
 import co.nimblehq.ui.base.BaseViewModel
-import co.nimblehq.ui.main.data.Data
+import co.nimblehq.ui.screens.data.Data
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject

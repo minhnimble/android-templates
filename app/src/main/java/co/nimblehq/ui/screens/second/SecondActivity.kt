@@ -1,4 +1,4 @@
-package co.nimblehq.ui.second
+package co.nimblehq.ui.screens.second
 
 import android.Manifest
 import android.content.Context
@@ -8,10 +8,13 @@ import android.provider.MediaStore
 import android.widget.Toast
 import co.nimblehq.R
 import co.nimblehq.ui.base.BaseActivity
-import co.nimblehq.ui.main.Const
-import co.nimblehq.ui.main.data.Data
+import co.nimblehq.ui.screens.Const
+import co.nimblehq.ui.screens.data.Data
 import kotlinx.android.synthetic.main.activity_second.*
-import permissions.dispatcher.*
+import permissions.dispatcher.NeedsPermission
+import permissions.dispatcher.OnNeverAskAgain
+import permissions.dispatcher.OnPermissionDenied
+import permissions.dispatcher.RuntimePermissions
 import kotlin.reflect.KClass
 
 
